@@ -7,7 +7,7 @@ var i18n = require('../models/i18n')
 
 //全部分类
 var cateAll = {
-    "_id": "",
+    "_id": "all",
     "Alias": "",
     "CateName": i18n.__("Category.all"),
     "Img": "/images/全部分类.svg"
@@ -27,6 +27,7 @@ var cateOther = {
  * @param callback 回调函数
  */
 exports.getAll = function (isAll, cached, callback) {
+    var res = isAll;
     if (typeof cached === 'function') {
         callback = cached;
         cached = true;
@@ -34,6 +35,7 @@ exports.getAll = function (isAll, cached, callback) {
         callback = isAll;
         isAll = true;
         cached = true;
+        res=null;
     }
     //缓存的key名称
     var cache_key = isAll ? 'categories_all' : 'categories';
@@ -55,6 +57,10 @@ exports.getAll = function (isAll, cached, callback) {
                     return callback(err);
                 }
                 if (isAll) {
+                    if (res) {
+                        cateAll.CateName = res.__('Category.all');
+                        cateOther.CateName = res.__('Category.uncate');
+                    }
                     categories.unshift(cateAll);
                     categories.push(cateOther);
                 }

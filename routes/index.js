@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
         },
         //获取分类
         function (cb) {
-            category.getAll(function (err, categories) {
+            category.getAll(res,function (err, categories) {
                 if (err) {
                     cb(err);
                 } else {
