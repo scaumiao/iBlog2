@@ -5,3 +5,5 @@ public/libs
 .gitignore
 public/images
 config/
+.env
+public/uploads

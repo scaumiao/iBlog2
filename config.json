@@ -1,5 +1,5 @@
 {
-  "DbPath": "mongodb://localhost/iBlog2",
+  "DbPath": "mongodb://wf:wf@localhost/iBlog2?authSource=admin",
   "Redis": {
     "Active": false,
     "Host": "127.0.0.1",
