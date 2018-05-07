@@ -11,7 +11,7 @@ function getPostsQuery(params) {
     var query = {};
     query.IsActive = true;
     query.IsDraft = false;
-    if (params.cateId) {
+    if (params.cateId && params.cateId != 'all') {
         query.CategoryId = params.cateId;
     }
     if (params.keyword) {
